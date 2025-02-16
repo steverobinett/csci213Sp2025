@@ -15,6 +15,7 @@
     <?php
 
     // phpinfo();
+    echo "now in a repo!<br>";
     echo "Starting PHP<br>";
     $servername = "localhost:3306"; // or "localhost:3307" for XAMPP
     $username = "root";
