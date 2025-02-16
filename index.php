@@ -13,20 +13,15 @@
     <h4>DB Connection Demo</h4>
 
     <?php
+    require_once 'utils/dbConnect.php';
 
     // phpinfo();
     echo "now in a repo!<br>";
     echo "Starting PHP<br>";
-    $servername = "localhost:3306"; // or "localhost:3307" for XAMPP
-    $username = "root";
-    $password = "";
-    $dbname = "test";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } else {
-        echo "Connected successfully<br>";
-    }
+    
+    
+
+    $conn = dbConnect();
 
     $sql = "SELECT * FROM student";
     $result = $conn->query($sql);
