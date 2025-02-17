@@ -23,7 +23,7 @@
 
     $conn = dbConnect();
 
-    $sql = "SELECT * FROM student";
+    $sql = "SELECT * FROM customer";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
