@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Widgets Database</title>
 </head>
 
 <body>
@@ -14,27 +13,48 @@
 
     <?php
     require_once 'utils/dbConnect.php';
+    require_once 'utils/customer.php';
 
     // phpinfo();
     echo "now in a repo!<br>";
     echo "Starting PHP<br>";
-    
-    
+
+
 
     $conn = dbConnect();
 
+
     $sql = "SELECT * FROM customer";
+
+    $customerArr = array();
+
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        // output data of each row
+
         while ($row = $result->fetch_assoc()) {
-            foreach ($row as $key => $value) {
-                echo "$key:&nbsp;$value ";
+            $cust = new Customer();
+          
+                $cust->setCustomerID($row['cust_id']);
+                $cust->setFirstName($row['cust_fname']);
+                $cust->setLastName($row['cust_lname']);
+                array_push($customerArr, $cust);
+
             }
-            echo "<br><br>";
+            // $cust->setCustomerID($row[0]);
+            // $cust->setFirstName($row[1]);
+            // $cust->setLastName($row[2])
+
         }
-    } else {
+     else {
         echo "0 results";
+    }
+
+
+    foreach($customerArr as $c) {
+        echo "Customer ID: " . $c->getCustomerID() . "<br>";
+        echo "First Name: " . $c->getFirstName() . "<br>";
+        echo "Last Name: " . $c->getLastName() . "<br>";
+        echo "<br>";
     }
     ?>
 </body>
