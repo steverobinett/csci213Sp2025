@@ -5,11 +5,25 @@ class Customer
     private $cust_id;
     private $cust_fname;
     private $cust_lname;
+    private $cust_email;
    
 
     public function __construct()
     {
         ;
+    }
+
+    public function __destruct()
+    {
+        ;
+    }
+    public function setEmail($email)
+    {
+        $this->cust_email = $email;
+    }
+    public function getEmail()
+    {
+        return htmlspecialchars($this->cust_email);
     }
 
     public function setCustomerID($customerID)

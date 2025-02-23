@@ -37,6 +37,7 @@
                 $cust->setCustomerID($row['cust_id']);
                 $cust->setFirstName($row['cust_fname']);
                 $cust->setLastName($row['cust_lname']);
+                $cust->setEmail($row['cust_email']);
                 array_push($customerArr, $cust);
 
             }
@@ -54,6 +55,7 @@
         echo "Customer ID: " . $c->getCustomerID() . "<br>";
         echo "First Name: " . $c->getFirstName() . "<br>";
         echo "Last Name: " . $c->getLastName() . "<br>";
+        echo "Email: " . $c->getEmail() . "<br>";
         echo "<br>";
     }
     ?>
